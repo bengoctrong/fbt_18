@@ -30,6 +30,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  invalic: "Invalic email or password"
+  welcome: "Welcome To Framgia Tours"
+  remeber_me: "Remember Me"
+  sign_in: "Sign In"
+  enter_the_email: "Enter the email you signed up with"
+  login: "Login"
   beach: "beach"
   cruise: "cruise"
   summer: "summer"
@@ -46,7 +52,7 @@ en:
   news: "News"
   offers: "Offers"
   about_us: "About us"
-  home: "home"
+  home: "Home"
   title: "Framgia Booking Tour"
   framgia_tour: "framgia tour"
   travel_agency: "travel agency"

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= t "title" %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag "layout_login/custom", media: "all", "data-turbolinks-track": "reload" %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="pr-wrap">
+            <div class="pass-reset">
+              <label><%= t "enter_the_email" %></label>
+              <input type="email" placeholder="Email" />
+              <input type="submit" value="Submit" class="pass-reset-submit btn btn-success btn-sm" />
+            </div>
+          </div>
+          <div class="wrap">
+            <p class="form-title"><%= t "sign_in" %></p>
+            <%= form_for(:session, url: login_path) do |f|%>
+              <%= f.email_field :email, placeholder: "Email" %>
+              <%= f.password_field :password, placeholder: "Password" %>
+              <%= f.label :remember_me, class: "checkbox inline" do %>
+              <%= f.check_box :remember_me, class: "checkbox-remember" %>
+                <span><%= t "remember_me" %></span>
+              <% end %>
+              <%= f.submit "login", class: "btn btn-success btn-sm" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

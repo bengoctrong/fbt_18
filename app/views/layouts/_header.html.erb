@@ -5,18 +5,19 @@
         <div class="header_container d-flex flex-row align-items-center justify-content-start">
           <div class="logo_container">
             <div class="logo">
-              <div><%= t "framgia_tour" %></div>
-              <div><%= t "travel_agency" %></div>
+              <div class="title"><%= t "framgia_tour" %></div>
+              <div class="title"><%= t "travel_agency" %></div>
               <div class="logo_image"><%=image_tag("logo")%></div>
             </div>
           </div>
           <nav class="main_nav ml-auto">
             <ul class="main_nav_list">
               <li class="main_nav_item active"><%= link_to t("home"), "#" %></li>
-              <li class="main_nav_item"><%= link_to t("about_us"), "#" %></li>
+              <li class="main_nav_item"><%= link_to t("tour"), "#" %></li>
               <li class="main_nav_item"><%= link_to t("offers"), "#" %></li>
               <li class="main_nav_item"><%= link_to t("new"), "#" %></li>
               <li class="main_nav_item"><%= link_to t("contact"), "#" %></li>
+              <li class="main_nav_item"><%= link_to t("login"), login_path %></li>
             </ul>
           </nav>
           <div class="search">
