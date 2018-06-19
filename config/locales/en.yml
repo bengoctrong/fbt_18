@@ -30,4 +30,23 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  beach: "beach"
+  cruise: "cruise"
+  summer: "summer"
+  travel: "travel"
+  tag: "Tags"
+  latest_news: "Latest News"
+  a_perfect_vacation: "A perfect vacation"
+  date: "Jan 09, 2018"
+  brazil_summer: "Brazil Summer"
+  lorem: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pulvinar sed mauris eget tincidunt. Sed lectus nulla, tempor vel eleifend quis, tempus rut rum metus. Pellentesque ultricies enim eu quam fermentum hendrerit"
+  discover_new_worlds: "Discover new worlds"
+  framgia_booking_tours: "Framgia Booking Tours"
+  contact: "Contact"
+  news: "News"
+  offers: "Offers"
+  about_us: "About us"
+  home: "home"
   title: "Framgia Booking Tour"
+  framgia_tour: "framgia tour"
+  travel_agency: "travel agency"
