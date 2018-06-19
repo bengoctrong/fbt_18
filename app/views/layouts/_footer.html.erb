@@ -1,0 +1,50 @@
+<footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 footer_col">
+          <div class="footer_about">
+            <div class="logo_container">
+              <div class="logo">
+                <div><%= t "framgia_tour" %></div>
+                <div><%= t "travel_agency" %></div>
+                <div class="logo_image"><%= image_tag("logo.png") %></div>
+              </div>
+            </div>
+            <div class="footer_about_text"><%= t "lorem" %></div>
+          </div>
+        </div>
+        <div class="col-lg-4 footer_col">
+          <div class="footer_latest">
+            <div class="footer_title"><%= t "latest_news" %></div>
+            <div class="footer_latest_content">
+              <div class="footer_latest_item">
+                <div class="footer_latest_image"><%= image_tag("latest_1.jpg") %></div>
+                <div class="footer_latest_item_content">
+                  <div class="footer_latest_item_title"><%= link_to t("brazil_summer"), "#" %></div>
+                  <div class="footer_latest_item_date"><%= t "date" %></div>
+                </div>
+              </div>
+              <div class="footer_latest_item">
+                <div class="footer_latest_image"><%= image_tag("latest_2.jpg") %></div>
+                <div class="footer_latest_item_content">
+                  <div class="footer_latest_item_title"><%= link_to t("a_perfect_vacation"), "#" %></div>
+                  <div class="footer_latest_item_date"><%= t "date" %></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 footer_col">
+          <div class="tags footer_tags">
+            <div class="footer_title"><%= t "tag" %></div>
+            <ul class="tags_content d-flex flex-row flex-wrap align-items-start justify-content-start">
+              <li class="tag"><%= link_to t("travel"), "#"%></li>
+              <li class="tag"><%= link_to t("cruise"), "#"%></li>
+              <li class="tag"><%= link_to t("summer"), "#"%></li>
+              <li class="tag"><%= link_to t("beach"), "#"%></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>

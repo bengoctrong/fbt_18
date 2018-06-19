@@ -46,6 +46,10 @@ GEM
       execjs
     bcrypt (3.1.12)
     bindex (0.5.0)
+    bootstrap (4.1.1)
+      autoprefixer-rails (>= 6.0.3)
+      popper_js (>= 1.12.9, < 2)
+      sass (>= 3.5.2)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -150,6 +154,7 @@ GEM
     parallel (1.12.1)
     parser (2.5.1.0)
       ast (~> 2.4.0)
+    popper_js (1.12.9)
     powerpack (0.1.2)
     public_suffix (3.0.2)
     puma (3.11.4)
@@ -249,6 +254,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
+  bootstrap (~> 4.1, >= 4.1.1)
   bootstrap-sass (= 3.3.7)
   bootstrap-will_paginate (= 1.0.0)
   byebug
@@ -276,4 +282,4 @@ DEPENDENCIES
   will_paginate (= 3.1.6)
 
 BUNDLED WITH
-   1.16.1
+   1.16.2

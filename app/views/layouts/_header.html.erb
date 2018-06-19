@@ -1,0 +1,42 @@
+<header class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="header_container d-flex flex-row align-items-center justify-content-start">
+          <div class="logo_container">
+            <div class="logo">
+              <div class="title"><%= t "framgia_tour" %></div>
+              <div class="title"><%= t "travel_agency" %></div>
+              <div class="logo_image"><%=image_tag("logo")%></div>
+            </div>
+          </div>
+          <nav class="main_nav ml-auto">
+            <ul class="main_nav_list">
+              <li class="main_nav_item active"><%= link_to t("home"), "#" %></li>
+              <li class="main_nav_item"><%= link_to t("about_us"), "#" %></li>
+              <li class="main_nav_item"><%= link_to t("offers"), "#" %></li>
+              <li class="main_nav_item"><%= link_to t("new"), "#" %></li>
+              <li class="main_nav_item"><%= link_to t("contact"), "#" %></li>
+            </ul>
+          </nav>
+          <div class="search">
+            <form action="#" class="search_form">
+              <input type="search" name="search_input" class="search_input ctrl_class" required="required" placeholder="Keyword">
+              <button type="submit" class="search_button ml-auto ctrl_class"><%= image_tag("search") %></button>
+            </form>
+          </div>
+          <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="home">
+  <div class="home_background"><%= image_tag("home.jpg") %></div>
+  <div class="home_content">
+    <div class="home_content_inner">
+      <div class="home_text_large"><%= t "framgia_booking_tours" %> </div>
+      <div class="home_text_small"><%= t "discover_new_worlds" %></div>
+    </div>
+  </div>
+</div>
