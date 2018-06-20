@@ -1,0 +1,17 @@
+user:
+  email_max: 255
+  pass_min: 6
+  name_max: 50
+  phone_max: 11
+  address_max: 300
+  bank_max: 14
+tour:
+  price_min: 0
+  price_max: 100_000_000
+  name_max: 255
+  content_max: 1000
+  quantity_min: 4
+  quantity_max: 51
+rate:
+  star_min: 0
+  star_max: 6
