@@ -31,14 +31,14 @@ ActiveRecord::Schema.define(version: 20180620072854) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "category_tours", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "categorytours", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "category_id"
     t.integer "tour_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id", "tour_id"], name: "index_category_tours_on_category_id_and_tour_id", unique: true
-    t.index ["category_id"], name: "index_category_tours_on_category_id"
-    t.index ["tour_id"], name: "index_category_tours_on_tour_id"
+    t.index ["category_id", "tour_id"], name: "index_categorytours_on_category_id_and_tour_id", unique: true
+    t.index ["category_id"], name: "index_categorytours_on_category_id"
+    t.index ["tour_id"], name: "index_categorytours_on_tour_id"
   end
 
   create_table "rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -70,8 +70,8 @@ ActiveRecord::Schema.define(version: 20180620072854) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "picture"
-    t.date "start"
-    t.date "end"
+    t.date "start_date"
+    t.date "end_date"
     t.decimal "price", precision: 8, scale: 2
   end
 

@@ -1,0 +1,11 @@
+<div class="col-sm-4 pb-30">
+  <div class="panel panel-default" id="tour-<%= tour.id %>">
+    <div class="panel-heading">
+      <%= tour.name %>
+    </div>
+    <div class="panel-body">
+      <p class="tour_content"><%= tour.description %></p>
+      <%= link_to t("link_tour"), tour, class:"btn-primary p-10"%>
+    </div>
+  </div>
+</div>

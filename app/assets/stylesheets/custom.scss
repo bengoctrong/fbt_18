@@ -7,6 +7,7 @@ $gray-medium-light: #eaeaea;
 $gray: #555;
 $gray-darker: #222;
 $gray-boder: #bbb;
+$gray91: #e8e8e8;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -140,4 +141,22 @@ input {
 .checkbox-remember {
   width: auto;
   margin-left: 0 !important;
+}
+
+/* tours */
+.tour_content {
+  height: 300px;
+  margin-bottom: 30px;
+}
+
+.mr-30{
+  margin-right: 30px;
+}
+
+.pb-30{
+  padding-bottom: 30px;
+}
+
+.p-10{
+  padding: 10px;
 }

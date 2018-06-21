@@ -6,3 +6,13 @@ User.create!(name: "Admin",
   password: "admin123",
   password_confirmation: "admin123",
   role: 0)
+
+10.times do |n|
+  name = Faker::Name.name
+  description = Faker::Lorem.paragraph(5)
+  quantity = Faker::Number.between(10, 40)
+  start_date = Faker::Date.forward(30)
+  end_date = Faker::Date.between(start_date, start_date + Faker::Number.between(3, 10).days)
+  Tour.create!(name: name, description: description,quantity: quantity,
+    start_date: start_date, end_date: end_date, price: 2000)
+end

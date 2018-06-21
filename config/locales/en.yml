@@ -30,6 +30,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  load_tour_failed: "Tour not found"
+  link_tour: "More details"
+  booking: "Book Tour"
+  start_date: "Departure day"
+  end_date: "Finish at"
+  tour_price: "Price per guest"
+  tour_quantity: "Guests"
   invalic: "Invalic Email or Password"
   lb_email: "Email"
   lb_pass: "Password"

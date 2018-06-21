@@ -1,0 +1,21 @@
+<div class="row">
+  <h1 class="color-primary mt-0 mb-15 hidden-xs">
+    <%= @tour.name %>
+  </h1>
+  <div class="col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading text-center">
+        <span class="mr-30"><%= t "start_date" %>: <%= @tour.start_date %></span>
+        <span class="mr-30"><%= t "end_date" %>: <%= @tour.end_date %></span>
+        <span class="mr-30"><%= t "tour_price" %>: <%= @tour.price %></span>
+        <span><%= t "tour_quantity" %>: <%= @tour.quantity %></span>
+      </div>
+      <div class="panel-body">
+        <span><%= @tour.description %></span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+  <!-- BOOKING HERE -->
+  </div>
+</div>
