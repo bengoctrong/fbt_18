@@ -1,42 +1,27 @@
-<header class="header">
+<header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <div class="row">
-      <div class="col">
-        <div class="header_container d-flex flex-row align-items-center justify-content-start">
-          <div class="logo_container">
-            <div class="logo">
-              <div><%= t "framgia_tour" %></div>
-              <div><%= t "travel_agency" %></div>
-              <div class="logo_image"><%=image_tag("logo")%></div>
-            </div>
-          </div>
-          <nav class="main_nav ml-auto">
-            <ul class="main_nav_list">
-              <li class="main_nav_item active"><%= link_to t("home"), "#" %></li>
-              <li class="main_nav_item"><%= link_to t("about_us"), "#" %></li>
-              <li class="main_nav_item"><%= link_to t("offers"), "#" %></li>
-              <li class="main_nav_item"><%= link_to t("new"), "#" %></li>
-              <li class="main_nav_item"><%= link_to t("contact"), "#" %></li>
+    <%= link_to t("title"), root_path, class: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to t("home"), root_path %></li>
+        <% if logged_in? %>
+          <li><%= link_to t("user"), "#" %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= t "account" %> <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to t("profile"), "#" %></li>
+              <li><%= link_to t("settings"), "#" %></li>
+              <li class="divider"></li>
+              <li>
+              <%= link_to t("log_out"), logout_path, method: :delete %>
+              </li>
             </ul>
-          </nav>
-          <div class="search">
-            <form action="#" class="search_form">
-              <input type="search" name="search_input" class="search_input ctrl_class" required="required" placeholder="Keyword">
-              <button type="submit" class="search_button ml-auto ctrl_class"><%= image_tag("search") %></button>
-            </form>
-          </div>
-          <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
-        </div>
-      </div>
-    </div>
+          </li>
+        <% else %>
+          <li><%= link_to t("login"), login_path %></li>
+        <% end %>
+    </nav>
   </div>
 </header>
-<div class="home">
-  <div class="home_background"><%= image_tag("home.jpg") %></div>
-  <div class="home_content">
-    <div class="home_content_inner">
-      <div class="home_text_large"><%= t "framgia_booking_tours" %> </div>
-      <div class="home_text_small"><%= t "discover_new_worlds" %></div>
-    </div>
-  </div>
-</div>

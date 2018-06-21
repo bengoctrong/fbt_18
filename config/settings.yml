@@ -15,3 +15,5 @@ tour:
 rate:
   star_min: 0
   star_max: 6
+
+remember_me: "1"
