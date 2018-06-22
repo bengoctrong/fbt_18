@@ -1,12 +1,15 @@
 class ToursController < ApplicationController
   before_action :load_tour
 
-  def show; end
+  def show
+    @booking = Booking.new
+  end
 
   private
 
   def load_tour
-    return if @tour = Tour.find_by(id: params[:id])
+    @tour = Tour.find_by id: params[:id]
+    return if @tour
     flash.now[:danger] = t "load_tour_failed"
     redirect_to root_url
   end

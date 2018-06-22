@@ -30,6 +30,15 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  dola: "%{price}$"
+  can't_booking_tour: "Can't Booking Tour"
+  booking_completed: "Booking Completed"
+  can't_found_tour: "Can't found Tour"
+  book_tour: "Book Tour"
+  quantity: "Quantity"
+  number_of_seats_remaining: "Number of seats remaining:"
+  price_total: "Price Total:"
+  unit_price: "Unit price:"
   load_tour_failed: "Tour not found"
   link_tour: "More details"
   booking: "Book Tour"
