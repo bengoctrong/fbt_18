@@ -6,6 +6,7 @@ user:
   address_max: 300
   bank_max: 14
 tour:
+  picture_home: "250x250"
   price_min: 0
   price_max: 100_000_000
   name_max: 255

@@ -2,6 +2,11 @@
   <div class="container">
     <%= link_to t("title"), root_path, class: "logo" %>
     <nav>
+      <%= form_tag root_path, method: :get, class:"navbar-form navbar-left" do %>
+          <%= text_field_tag :search, params[:search],
+            placeholder: "Search Tours", class:"form-control" %>
+          <%= submit_tag "Search", class:"search-btn btn btn-default" %>
+        <% end %>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to t("home"), root_path %></li>
         <% if logged_in? %>
@@ -22,6 +27,7 @@
         <% else %>
           <li><%= link_to t("login"), login_path %></li>
         <% end %>
+      </ul>
     </nav>
   </div>
 </header>
