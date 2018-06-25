@@ -1,7 +1,9 @@
 class ToursController < ApplicationController
   before_action :load_tour, only: :show
 
-  def show; end
+  def show
+    @booking = Booking.new
+  end
 
   private
 

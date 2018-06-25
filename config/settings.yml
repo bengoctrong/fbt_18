@@ -7,12 +7,14 @@ user:
   bank_max: 14
 tour:
   picture_home: "250x250"
+  picture_show: "750x400"
   price_min: 0
   price_max: 100_000_000
   name_max: 255
   content_max: 1000
   quantity_min: 4
   quantity_max: 51
+  number_field: 1
 rate:
   star_min: 0
   star_max: 6

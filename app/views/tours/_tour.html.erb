@@ -4,8 +4,7 @@
       <%= tour.name %>
     </div>
     <div class="panel-body">
-      <%= image_tag tour.picture.url, size: Settings.tour.picture_home,
-        class:"imgcenter"  if tour.picture? %>
+      <%= image_tag tour.picture.url, size: Settings.tour.picture_home if tour.picture? %>
       <p class="tour_content"><%= tour.description %></p>
       <%= link_to t("link_tour"), tour, class:"btn-primary p-10"%>
     </div>
