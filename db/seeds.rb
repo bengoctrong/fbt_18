@@ -18,6 +18,21 @@ User.create!(name: "Example User",
 
 20.times do |n|
   name = Faker::Name.name
+  email = "example-#{n+1}@railstutorial.org"
+  phone = Faker::PhoneNumber.phone_number
+  bank_number = Faker::Bank.swift_bic + "#{n}"
+  address = Faker::Address.full_address
+  User.create!(name: name,
+    email: email,
+    phone: phone,
+    bank_number: bank_number,
+    address: address,
+    password: "user123",
+    password_confirmation: "user123")
+end
+
+30.times do |n|
+  name = Faker::Name.name
   description = Faker::Lorem.paragraph(5)
   quantity = Faker::Number.between(10, 40)
   start_date = Faker::Date.forward(30)
@@ -27,4 +42,11 @@ User.create!(name: "Example User",
   Tour.create!(name: name, description: description,quantity: quantity,
     start_date: start_date, end_date: end_date, price: 2000, seats_remaining: seats_remaining,
     remote_picture_url: remote_picture_url)
+end
+
+users = User.order(:created_at).take(6)
+tours = Tour.order(:created_at).take(10)
+tours.each do |tour|
+  content = Faker::Lorem.sentence(5)
+  users.each { |user| Review.create!(user_id: user.id, tour_id: tour.id, content: content) }
 end

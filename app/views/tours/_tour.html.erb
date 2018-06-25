@@ -5,7 +5,7 @@
     </div>
     <div class="card-body">
       <%= image_tag tour.picture.url, class:"card-img" if tour.picture? %>
-      <p class="tour_content"><%= tour.description %></p>
+      <p class=""><%= tour.description %></p>
     </div>
     <div class="card-footer">
       <%= link_to t("link_tour"), tour, class:"btn btn-success card-bot"%>
