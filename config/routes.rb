@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
+  devise_for :users
   root "static_page#home"
   resources :tours, only: :show
   resources :reviews, only: %i(create destroy)
   resources :rates, only: :create
   resources :users, only: :show
   namespace :admin do
-    resources :tours, except: %i(show new)
-    resources :bookings, only: %i(index edit)
+    devise_for :tours, except: %i(show new)
+    devise_for :bookings, only: %i(index edit)
   end
 
   patch "/cancel_booking", to: "users#cancel_booking"
