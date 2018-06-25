@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     redirect_to login_path
   end
 
-  def is_admin
+  def is_admin?
     return if logged_in? && current_user.admin?
     flash[:danger] = t "not_allow"
     redirect_to root_path

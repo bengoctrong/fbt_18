@@ -33,10 +33,10 @@ class ReviewsController < ApplicationController
   def load_comment_destroy
     if check_admin
       @review = Review.find_by id: params[:id]
-      flash[:danger] = t "wrong_user" unless @review.present?
+      flash[:danger] = t "no_review" unless @review.present?
     else
       @review = current_user.reviews.find_by id: params[:id]
-      flash[:danger] = t "no review" unless @review.present
+      flash[:danger] = t "wrong_user" unless @review.present
     end
     @tour = @review.tour
   end
@@ -48,6 +48,7 @@ class ReviewsController < ApplicationController
     else
       flash[:danger] =  t "load_tour_failed"
       redirect_to root_path
+    end
   end
 
   def review_params

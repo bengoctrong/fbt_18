@@ -30,6 +30,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  rate_failed: "Failed rating"
+  rate_success: "Rated this tour !"
+  rating: "Rate"
+  from_users_rating: "from "
+  none_rates: "NONE"
+  rates_mean: "Rates"
   reply: "Reply"
   wrong_user: "Wrong user"
   review_failed: "Review failed"
