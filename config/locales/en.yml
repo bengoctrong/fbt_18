@@ -31,6 +31,13 @@
 
 en:
   reply: "Reply"
+  wrong_user: "Wrong user"
+  review_failed: "Review failed"
+  no_review: "Review not found"
+  review_del_confirm: "You sure ?"
+  delete_success_review: "Review Success !"
+  delete_failed_review: "Review Failed !"
+  not_logged: "Please login"
   status: "Status:"
   not_allow: "You not allow to do this"
   reject: "Reject"
@@ -60,7 +67,14 @@ en:
       content3: "Your booking request on Tour:"
       content4: "has been accepted"
   out_of_seats: Call tech support!
-  dola: "%{price}$"
+  number:
+    currency:
+      format:
+        unit: "$"
+        delimiter: ""
+        separator: "."
+        precision: 0
+        format: "%n%u"
   can't_found_booking: "Booking not found"
   can't_booking_tour: "Can't Booking Tour"
   booking_completed: "Booking Completed"
@@ -70,6 +84,7 @@ en:
   number_of_seats_remaining: "Number of seats remaining:"
   price_total: "Price Total:"
   unit_price: "Unit price:"
+  no_record: "Cant found any tour with \"%{search}\""
   load_tour_failed: "Tour not found"
   link_tour: "More details"
   booking: "Book Tour"
