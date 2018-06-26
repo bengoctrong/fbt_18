@@ -6,14 +6,7 @@ class BookingsController < ApplicationController
       @booking = Booking.new booking_params
       @booking.total_price = multiplication @tour.price, params[:booking][:quantity].to_f
       if @booking.save
-        if update_total_seats
-          flash[:success] = t "booking_completed"
-          redirect_to root_path
-        else
-          flash[:danger] = t "out_of_seats"
-          raise ActiveRecord::Rollback, t("out_of_seats")
-          redirect_to @tour
-        end
+        seats_transaction
       else
         flash[:danger] = t "can't_booking_tour"
         redirect_to @tour
@@ -22,6 +15,16 @@ class BookingsController < ApplicationController
   end
 
   private
+
+  def seats_transaction
+    if update_total_seats
+      flash[:success] = t "booking_completed"
+      redirect_to root_path
+    else
+      flash[:danger] = t "out_of_seats"
+      raise ActiveRecord::Rollback, t("out_of_seats")
+    end
+  end
 
   def booking_params
     params.require(:booking).permit :tour_id, :quantity, :user_id

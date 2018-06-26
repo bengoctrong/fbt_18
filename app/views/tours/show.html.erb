@@ -4,7 +4,7 @@
   </h1>
   <div class="col-md-8">
     <%= image_tag @tour.picture.url, size: Settings.tour.picture_show,
-          class:"img-responsive"  if @tour.picture? %>
+      class:"img-responsive" if @tour.picture? %>
     <div class="panel panel-default">
       <div class="panel-heading text-center">
         <span class="mr-30"><%= t "start_date" %>: <%= @tour.start_date %></span>
@@ -23,7 +23,7 @@
         <div class="col-sm-12">
           <ul class="list-group">
             <li class="list-group-item list-group-item-info"><%= t "unit_price" %>
-              <span class="badge" id="unit_price"><%= @tour.price %></span>
+              <span class="badge" id="unit_price"><%= t "dola", price:@tour.price %></span>
             </li>
             <li class="list-group-item list-group-item-success"><%= t "price_total" %>
               <span class="badge" id="price"><%= t "dola", price:@tour.price %> </span>

@@ -30,8 +30,25 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  not_allow: "You not allow to do this"
+  reject: "Reject"
+  accept: "Accept"
   search_holder: "Search Tour"
   search_submit: "Search"
+  request_admin: "Booking Request"
+  request_user: "Tour Request"
+  booking_mailer:
+    request_admin:
+      head: "New Request"
+      content1: "We have new request from"
+      content2: "to Tour:"
+      content3: "Checkout pending request !!!"
+    request_user:
+      head: "Request has been"
+      content1: "Thank you,"
+      content2: "for using our services"
+      content3: "Your booking request on Tour:"
+      content4: "has been accepted"
   out_of_seats: Call tech support!
   dola: "%{price}$"
   can't_booking_tour: "Can't Booking Tour"

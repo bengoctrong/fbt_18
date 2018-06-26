@@ -8,7 +8,7 @@ User.create!(name: "Admin",
   role: 0)
 
 User.create!(name: "Example User",
-  email: "user@test.com",
+  email: "caoduc2210@gmail.com",
   phone: "0901111111",
   bank_number: "111-222-2222",
   address: "123 Suppasentai Street",

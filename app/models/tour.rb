@@ -20,7 +20,7 @@ class Tour < ApplicationRecord
   validates :end_date, presence: true
   validate :date_validation?
   scope :order_desc, ->{order created_at: :desc}
-  scope :search_by_name, ->(search){where("name LIKE ?", "%#{search}%") if search.present? }
+  scope :search_by_name, ->(search){where("name LIKE ?", "%#{search}%") if search.present?}
 
   mount_uploader :picture, PictureUploader
 
