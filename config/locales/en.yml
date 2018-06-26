@@ -51,6 +51,7 @@ en:
       content4: "has been accepted"
   out_of_seats: Call tech support!
   dola: "%{price}$"
+  can't_found_booking: "Booking not found"
   can't_booking_tour: "Can't Booking Tour"
   booking_completed: "Booking Completed"
   can't_found_tour: "Can't found Tour"

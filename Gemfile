@@ -15,6 +15,7 @@ gem "jquery-rails", "4.3.1"
 gem "jquery-turbolinks"
 gem "rubocop", "~> 0.49.1", require: false
 gem "will_paginate", "3.1.6"
+gem "figaro"
 
 gem "coffee-rails", "~> 4.2"
 gem "jbuilder", "~> 2.5"

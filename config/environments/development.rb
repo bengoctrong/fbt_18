@@ -36,11 +36,11 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain:  "heroku.com",
-    user_name: "caoduc2210@gmail.com",
-    password:  "asd505ken",
+    address: <%= Settings.address %>,
+    port: <%= Settings.port %>,
+    domain:  <%= Settings.domain %>,
+    user_name: <%= Figaro.env.hostmail_username %>,
+    password:  <%= Figaro.env.hostmail_password %>,
     authentication: "plain",
     enable_starttls_auto: true
   }

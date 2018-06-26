@@ -21,3 +21,7 @@ rate:
 record_pages: 9
 
 remember_me: "1"
+#enviroment
+domain: "heroku.com"
+port: 587
+address: "smtp.gmail.com"

@@ -9,17 +9,26 @@ module Admin
 
     def create
       @booking = Booking.find_by id: params[:booking][:id]
-      if params[:commit] == t("accept")
-        @booking.update_attributes status: Booking.statuses[:accepted]
+      if @booking
+        update_status
         @booking.email_to_user
-        flash[:info] = t("accept")
-      elsif params[:commit] == t("reject")
-        @booking.update_attributes status: Booking.statuses[:rejected]
-        @booking.email_to_user
-        @booking.tour.update_attributes seats_remaining: @booking.tour.seats_remaining + @booking.quantity
-        flash[:info] = t("reject")
+      else
+        flash[:danger] = t "can't_found_booking"
       end
       redirect_back fallback_location: :new
+    end
+
+    private
+
+    def update_status
+      if params[:commit] == t("accept")
+        @booking.accepted!
+        flash[:info] = t "accept"
+      elsif params[:commit] == t("reject")
+        @booking.rejected!
+        @booking.tour.update_attributes seats_remaining: @booking.tour.seats_remaining + @booking.quantity
+        flash[:info] = t "reject"
+      end
     end
   end
 end
