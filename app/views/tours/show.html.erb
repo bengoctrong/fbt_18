@@ -1,18 +1,16 @@
+<h1 class="color-primary mt-0 mb-15 hidden-xs">
+  <%= @tour.name %>
+</h1>
 <div class="row">
-  <h1 class="color-primary mt-0 mb-15 hidden-xs">
-    <%= @tour.name %>
-  </h1>
   <div class="col-md-8">
-    <%= image_tag @tour.picture.url, size: Settings.tour.picture_show,
-      class:"img-responsive" if @tour.picture? %>
-    <div class="panel panel-default">
-      <div class="panel-heading text-center">
-        <span class="mr-30"><%= t "start_date" %>: <%= @tour.start_date %></span>
-        <span class="mr-30"><%= t "end_date" %>: <%= @tour.end_date %></span>
-        <span class="mr-30"><%= t "tour_price" %>: <%= @tour.price %></span>
+    <%= image_tag @tour.picture.url, class:"card-img-top" if @tour.picture? %>
+    <div class="card">
+      <div class="card-header text-center">
+        <span class="mr-4"><%= t "start_date" %>: <%= @tour.start_date %></span>
+        <span class="mr-4"><%= t "end_date" %>: <%= @tour.end_date %></span>
         <span><%= t "tour_quantity" %>: <%= @tour.quantity %></span>
       </div>
-      <div class="panel-body">
+      <div class="card-body">
         <span><%= @tour.description %></span>
       </div>
     </div>
@@ -34,24 +32,14 @@
           </ul>
         </div>
       </div>
-      <div class="row">
+      <div class="row mt-3">
         <div class="col-md-12">
-          <%= form_for @booking do |f| %>
+          <%= form_for @booking, class:"form-inline" do |f| %>
             <%= f.hidden_field :tour_id, value: @tour.id %>
             <%= f.hidden_field :user_id, value: current_user.id %>
-            <div class="col-sm-4">
-              <p><%= t "quantity" %>
-                <span>
-                  <%= f.number_field :quantity, min: Settings.remember_me,
-                    max: @tour.seats_remaining, value: Settings.number_field, id: "quantity" %>
-                </span>
-              </p>
-            </div>
-            <div class="col-sm-8">
-              <div class="btn-group ebtn-group">
-                <%= f.submit t("book_tour"), class: "btn btn-danger ebtn-danger" %>
-              </div>
-            </div>
+            <%= t "quantity" %> <%= f.number_field :quantity, min: Settings.remember_me,
+              max: @tour.seats_remaining, value: Settings.number_field, id: "quantity" %>
+            <%= f.submit t("book_tour"), class: "btn btn-danger " %>
           <% end %>
         </div>
       </div>

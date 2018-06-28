@@ -1,12 +1,14 @@
-<div class="col-sm-4 pb-30">
-  <div class="panel panel-default" id="tour-<%= tour.id %>">
-    <div class="panel-heading">
-      <%= tour.name %>
+<div class="col-sm-4 mb-3">
+  <div class="card card-index" id="tour-<%= tour.id %>">
+    <div class="card-header">
+      <%= link_to tour.name, tour, class:"card-link" %>
     </div>
-    <div class="panel-body">
-      <%= image_tag tour.picture.url, size: Settings.tour.picture_home if tour.picture? %>
+    <div class="card-body">
+      <%= image_tag tour.picture.url, class:"card-img" if tour.picture? %>
       <p class="tour_content"><%= tour.description %></p>
-      <%= link_to t("link_tour"), tour, class:"btn-primary p-10"%>
+    </div>
+    <div class="card-footer">
+      <%= link_to t("link_tour"), tour, class:"btn btn-success card-bot"%>
     </div>
   </div>
 </div>

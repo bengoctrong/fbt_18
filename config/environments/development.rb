@@ -36,9 +36,9 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: Settings.address,
-    port: Settings.port,
-    domain:  Settings.domain,
+    address: Figaro.env.address,
+    port: Figaro.env.port,
+    domain:  Figaro.env.domain,
     user_name: Figaro.env.hostmail_username,
     password:  Figaro.env.hostmail_password,
     authentication: "plain",

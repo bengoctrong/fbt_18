@@ -1,36 +1,32 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
   <div class="container">
-    <%= link_to t("title"), root_path, class: "logo" %>
-    <nav>
-      <%= form_tag root_path, method: :get, class:"navbar-form navbar-left" do %>
+    <%= link_to t("title"), root_path, class: "logo navbar-brand text-white" %>
+      <%= form_tag root_path, method: :get, class:"form-inline" do %>
         <%= text_field_tag :search, params[:search],
-          placeholder: t("search_holder"), class:"form-control" %>
+          placeholder: t("search_holder"), class:"form-control mr-sm-2" %>
         <%= submit_tag t("search_submit"), class:"search-btn btn btn-default" %>
       <% end %>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to t("home"), root_path %></li>
+        <li><%= link_to t("home"), root_path, class:"nav-link text-white" %></li>
         <% if logged_in? %>
-          <li><%= link_to t("user"), "#" %></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <li><%= link_to t("user"), "#", class:"nav-link text-white" %></li>
+          <li class="nav-link dropdown">
+            <a href="#" class="dropdown-toggle text-white" data-toggle="dropdown">
               <%= t "account" %> <b class="caret"></b>
             </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to t("profile"), profile_path %></li>
+            <div class="dropdown-menu">
+              <%= link_to t("profile"), profile_path, class:"dropdown-item" %>
               <% if current_user.admin? %>
-                <li><%= link_to t("Bookings"), admin_booking_tours_path %></li>
+                <%= link_to t("Bookings"), admin_booking_tours_path, class:"dropdown-item" %>
               <% end %>
-              <li><%= link_to t("settings"), "#" %></li>
-              <li class="divider"></li>
-              <li>
-              <%= link_to t("log_out"), logout_path, method: :delete %>
-              </li>
-            </ul>
+              <%= link_to t("settings"), "#", class:"dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <%= link_to t("log_out"), logout_path, method: :delete, class:"dropdown-item" %>
+            </div>
           </li>
         <% else %>
           <li><%= link_to t("login"), login_path %></li>
         <% end %>
       </ul>
-    </nav>
   </div>
 </header>
