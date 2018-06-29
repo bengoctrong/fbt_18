@@ -30,16 +30,23 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  reply: "Reply"
   status: "Status:"
   not_allow: "You not allow to do this"
   reject: "Reject"
   accept: "Accept"
   cancel: "Cancel"
   can't_cancel: "Cannot cancel booking"
+  review_holder: "Type something"
+  review_completed: "Review Completed"
+  can't_review: "Cannot review"
+  send: "Send"
   search_holder: "Search Tour"
   search_submit: "Search"
   request_admin: "Booking Request"
   request_user: "Tour Request"
+  review_content1: "Posted "
+  review_content2: " ago."
   booking_mailer:
     request_admin:
       head: "New Request"

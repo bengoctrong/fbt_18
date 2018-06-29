@@ -9,6 +9,5 @@ class CreateReviews < ActiveRecord::Migration[5.1]
     end
     add_index :reviews, :user_id
     add_index :reviews, :tour_id
-    add_index :reviews, [:user_id, :tour_id], unique: true
   end
 end

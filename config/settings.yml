@@ -17,5 +17,6 @@ rate:
   star_min: 0
   star_max: 6
 record_pages: 9
+row_review: 5
 
 remember_me: "1"
