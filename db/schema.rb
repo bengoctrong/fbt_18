@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20180621171928) do
     t.integer "status", default: 0
     t.integer "total_price"
     t.index ["tour_id"], name: "index_bookings_on_tour_id"
-    t.index ["user_id", "tour_id"], name: "index_bookings_on_user_id_and_tour_id", unique: true
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 

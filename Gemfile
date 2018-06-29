@@ -6,15 +6,15 @@ git_source(:github) do |repo_name|
 end
 
 gem "bcrypt", "~> 3.1.7"
-gem "bootstrap-sass", "3.3.7"
-gem "bootstrap-will_paginate", "1.0.0"
+gem "bootstrap", "~> 4.1.1"
+gem "will_paginate",           "3.1.6"
+gem "will_paginate-bootstrap4"
 gem "carrierwave", "1.2.2"
 gem "config"
 gem "faker", "1.7.3"
 gem "jquery-rails", "4.3.1"
 gem "jquery-turbolinks"
 gem "rubocop", "~> 0.49.1", require: false
-gem "will_paginate", "3.1.6"
 gem "figaro"
 
 gem "coffee-rails", "~> 4.2"
