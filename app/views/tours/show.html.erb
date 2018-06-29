@@ -39,7 +39,7 @@
             <%= f.hidden_field :user_id, value: current_user.id %>
             <%= t "quantity" %> <%= f.number_field :quantity, min: Settings.remember_me,
               max: @tour.seats_remaining, value: Settings.number_field, id: "quantity" %>
-            <%= f.submit t("book_tour"), class: "btn btn-danger " %>
+            <%= f.submit t("book_tour"), class: "btn btn-danger disable" %>
           <% end %>
         </div>
       </div>

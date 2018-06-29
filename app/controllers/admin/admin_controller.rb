@@ -23,7 +23,6 @@ module Admin
     def update_status
       if params[:commit] == t("accept")
         @booking.accepted!
-        flash[:info] = t "accept"
       elsif params[:commit] == t("reject")
         @booking.rejected!
         @booking.tour.update_attributes seats_remaining: @booking.tour.seats_remaining + @booking.quantity
