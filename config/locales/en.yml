@@ -30,6 +30,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  create_tour_success: "Create tour completed !"
+  create_tor_failed: "Create tour failed !"
+  delete_tour: "Delete"
   submit: "Submit"
   pending: "pending"
   accepted: "accepted"

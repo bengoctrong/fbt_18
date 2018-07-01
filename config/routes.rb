@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   resources :tours, only: :show
   resources :reviews, only: %i(create destroy)
   resources :rates, only: :create
+  resources :users, only: :show
   namespace :admin do
-    get "/booking_tours", to: "admin#new"
-    patch "/booking_tours", to: "admin#create"
+    resources :tours, except: %i(show new)
+    resources :bookings, only: %i(index edit)
   end
 
-  get "/profile", to: "users#show"
   patch "/cancel_booking", to: "users#cancel_booking"
   get "/login", to: "session#new"
   post "/login", to: "session#create"

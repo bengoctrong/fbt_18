@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :load_user, only: :show
+
   def show
     @bookings = Booking.from_status(params[:commit]).all.order_desc
       .paginate page: params[:page], per_page: Settings.admin_booking
@@ -30,5 +32,12 @@ class UsersController < ApplicationController
 
   def update_seats
     @booking.tour.update_attributes seats_remaining: @booking.tour.seats_remaining + @booking.quantity
+  end
+
+  def load_user
+    @user = User.find_by id: params[:id]
+    return if @user
+    flash.now[:danger] = t "load_tour_failed"
+    redirect_to root_path
   end
 end

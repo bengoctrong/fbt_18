@@ -4,6 +4,7 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :tour
 
+  validates :user_id, uniqueness: {scope: :tour_id}
   scope :order_desc, ->{order created_at: :desc}
   scope :from_status, ->(status){where status: status}
   scope :order_pending, ->{order :status}
