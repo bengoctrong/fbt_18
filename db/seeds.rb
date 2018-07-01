@@ -31,6 +31,16 @@ User.create!(name: "Example User",
     password_confirmation: "user123")
 end
 
+3.times do |n|
+  name = "Category-#{n}"
+  parent = Category.create!(name: name)
+  3.times do |m|
+    childname = "Child Category-#{parent.id}:#{m}"
+    parent_id = parent.id
+    Category.create!(name: childname, parent_id: parent_id)
+  end
+end
+
 30.times do |n|
   name = Faker::Name.name
   description = Faker::Lorem.paragraph(5)
@@ -45,8 +55,30 @@ end
 end
 
 users = User.order(:created_at).take(6)
-tours = Tour.order(:created_at).take(10)
+tours = Tour.order(:created_at).take(6)
 tours.each do |tour|
   content = Faker::Lorem.sentence(5)
-  users.each { |user| Review.create!(user_id: user.id, tour_id: tour.id, content: content) }
+  quantity = 1
+  users.each { |user| Review.create!(user_id: user.id, tour_id: tour.id, content: content)
+    Booking.create!(user_id: user.id, tour_id: tour.id, quantity: quantity) }
 end
+
+Tour.all.each do |tour|
+  if tour.id <= 10
+    cat_id1 = Faker::Number.between(2,4)
+    cat_id2 = Faker::Number.between(6,8)
+    Categorytour.create!(category_id: cat_id1, tour_id: tour.id)
+    Categorytour.create!(category_id: cat_id2, tour_id: tour.id)
+  elsif 10 < tour.id && tour.id <= 20
+    cat_id1 = Faker::Number.between(2,4)
+    cat_id2 = Faker::Number.between(10,12)
+    Categorytour.create!(category_id: cat_id1, tour_id: tour.id)
+    Categorytour.create!(category_id: cat_id2, tour_id: tour.id)
+  elsif 20 < tour.id && tour.id <= 30
+    cat_id1 = Faker::Number.between(6,8)
+    cat_id2 = Faker::Number.between(10,12)
+    Categorytour.create!(category_id: cat_id1, tour_id: tour.id)
+    Categorytour.create!(category_id: cat_id2, tour_id: tour.id)
+  end
+end
+

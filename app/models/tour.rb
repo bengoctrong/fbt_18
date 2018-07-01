@@ -22,6 +22,12 @@ class Tour < ApplicationRecord
   validate :date_validation?
   scope :order_desc, ->{order created_at: :desc}
   scope :search_by_name, ->(search){where("name LIKE ?", "%#{search}%") if search.present?}
+  scope :search_by_category, (lambda do |category|
+    if category.present?
+      includes(:categories).where(categories: {id: category})
+        .or(includes(:categories).where(categories: {parent_id: category}))
+    end
+  end)
 
   mount_uploader :picture, PictureUploader
 

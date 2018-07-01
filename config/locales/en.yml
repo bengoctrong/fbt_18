@@ -30,6 +30,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  submit: "Submit"
+  pending: "pending"
+  accepted: "accepted"
+  rejected: "rejected"
+  canceled: "canceled"
+  all: "All"
   rate_failed: "Failed rating"
   rate_success: "Rated this tour !"
   rating: "Rate"

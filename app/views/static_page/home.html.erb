@@ -1,5 +1,12 @@
-<div class="panel-group">
+<div class="card-group">
   <%= will_paginate @feed_items%>
+  <%= form_tag root_path, method: :get, class:"input-group mb-3" do %>
+    <div class="input-group-prepend">
+    <%= submit_tag t("submit"), class:"btn btn-outline-secondary" %>
+    </div>
+    <%= select_tag "category", options_from_collection_for_select(@categories, "id", "name"),
+      include_blank: "All", class:"custom-select"%>
+  <% end %>
   <div class="row">
     <%= render "shared/feed" %>
   </div>

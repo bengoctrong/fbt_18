@@ -3,7 +3,7 @@ module Admin
     before_action :is_admin?
 
     def new
-      @bookings = Booking.includes(:tour).all.order_pending
+      @bookings = Booking.from_status(params[:commit]).all.order_desc
         .paginate page: params[:page], per_page: Settings.admin_booking
     end
 
