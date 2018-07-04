@@ -1,6 +1,6 @@
 module Admin
   class AdminController < ApplicationController
-    before_action :check_admin
+    before_action :is_admin
 
     def new
       @bookings = Booking.includes(:tour).all.order_pending

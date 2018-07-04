@@ -4,11 +4,21 @@
 <div class="row">
   <div class="col-md-8">
     <%= image_tag @tour.picture.url, class:"card-img-top" if @tour.picture? %>
-    <div class="card">
-      <div class="card-header text-center">
+    <div class="card border-secondary">
+      <div class="card-header bg-primary text-center text-white font-weight-bold">
         <span class="mr-4"><%= t "start_date" %>: <%= @tour.start_date %></span>
         <span class="mr-4"><%= t "end_date" %>: <%= @tour.end_date %></span>
         <span><%= t "tour_quantity" %>: <%= @tour.quantity %></span>
+        <span class="float-right"><i id="1" class="text-warning font-weight-bold fa fa-star-o"
+          onclick="set('1')"></i></span>
+        <span class="float-right"><i id="2" class="text-warning font-weight-bold fa fa-star-o"
+          onclick="set('2')"></i></span>
+        <span class="float-right"><i id="3" class="text-warning font-weight-bold fa fa-star-o"
+          onclick="set('3')"></i></span>
+        <span class="float-right"><i id="4" class="text-warning font-weight-bold fa fa-star-o"
+          onclick="set('4')"></i></span>
+        <span class="float-right"><i id="5" class="text-warning font-weight-bold fa fa-star-o"
+          onclick="set('5')"></i></span>
       </div>
       <div class="card-body">
         <span><%= @tour.description %></span>
@@ -21,10 +31,10 @@
         <div class="col-sm-12">
           <ul class="list-group">
             <li class="list-group-item list-group-item-info"><%= t "unit_price" %>
-              <span class="badge" id="unit_price"><%= t "dola", price:@tour.price %></span>
+              <span class="badge" id="unit_price"><%= number_to_currency @tour.price %></span>
             </li>
             <li class="list-group-item list-group-item-success"><%= t "price_total" %>
-              <span class="badge" id="price"><%= t "dola", price:@tour.price %> </span>
+              <span class="badge" id="price"><%= number_to_currency @tour.price %></span>
             </li>
             <li class="list-group-item list-group-item-success"><%= t "number_of_seats_remaining" %>
               <span class="badge" id="number"><%= @tour.seats_remaining %></span>
@@ -38,7 +48,7 @@
             <%= f.hidden_field :tour_id, value: @tour.id %>
             <%= f.hidden_field :user_id, value: current_user.id %>
             <%= t "quantity" %> <%= f.number_field :quantity, min: Settings.remember_me,
-              max: @tour.seats_remaining, value: Settings.number_field, id: "quantity" %>
+              max: @tour.seats_remaining, value: Settings.tour.number_field, id: "quantity" %>
             <%= f.submit t("book_tour"), class: "btn btn-danger disable" %>
           <% end %>
         </div>
@@ -46,40 +56,14 @@
     <% end %>
   </div>
 </div>
-<% if logged_in? %>
-  <div class="row mt-3">
-    <div class="col-md-8">
-      <div class="card">
-        <div class="card-body review-form">
-          <div class="row">
-            <div class="col-md-2">
-              <%= image_tag("latest_1.jpg") %>
-            </div>
-            <div class="col-md-10">
-              <%= current_user.name %>
-              <div class="row">
-                <div class="col-md-12">
-                <%= form_for @review, remote: true do |f| %>
-                  <%= f.hidden_field :tour_id, value: @tour.id %>
-                  <%= f.hidden_field :user_id, value: current_user.id %>
-                  <%= f.text_area :content, placeholder: t("review_holder"),
-                    class:"form-control", rows: Settings.row_review %>
-                  <%= f.submit t("send"), class: "btn btn-info float-right mt-2" %>
-                <% end %>
-              </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
+<div class="div-review-form">
+  <%= render "review_form" %>
+</div>
 <% if @reviews.any? %>
   <div class="row">
     <div class="col-md-8">
       <div class="card">
-        <div class="card-body">
+        <div class="card-body div-review">
           <%= render @reviews %>
         </div>
       </div>

@@ -1,0 +1,28 @@
+<% if logged_in? %>
+  <div class="row mt-3">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body review-form">
+          <div class="row">
+            <div class="col-md-2">
+              <%= image_tag("latest_1.jpg") %>
+            </div>
+            <div class="col-md-10">
+              <%= current_user.name %>
+              <div class="row">
+                <div class="col-md-12">
+                <%= form_for @tour.reviews.build, remote: true do |f| %>
+                  <%= f.hidden_field :tour_id, value: @tour.id %>
+                  <%= f.hidden_field :user_id, value: current_user.id %>
+                  <%= f.text_area :content, placeholder: t("review_holder"), class:"form-control", rows: Settings.row_review %>
+                  <%= f.submit t("send"), class: "btn btn-info float-right mt-2" %>
+                <% end %>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
