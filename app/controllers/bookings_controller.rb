@@ -38,6 +38,6 @@ class BookingsController < ApplicationController
     @tour = Tour.find_by id: params[:booking][:tour_id]
     return if @tour
     flash[:danger] = t "can't_found_tour"
-    redirect_to root_path
+    redirect_to @tour_path
   end
 end

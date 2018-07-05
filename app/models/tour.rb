@@ -1,5 +1,6 @@
 class Tour < ApplicationRecord
   VALID_PRICE = /\A\d+(?:\.\d{0,2})?\z/
+  cattr_accessor :rates_mean
 
   has_many :rates, dependent: :destroy
   has_many :users, through: :rates, source: :user
