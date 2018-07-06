@@ -15,7 +15,7 @@ class RatesController < ApplicationController
   private
 
   def cal_rating_mean
-    @tour.rates_mean = 0
+    @tour.rates_mean = Settings.rate.star_min
     @tour.rates.each do |rate|
       @tour.rates_mean += rate.stars.to_f
     end

@@ -5,6 +5,7 @@ class Booking < ApplicationRecord
   belongs_to :tour
 
   scope :order_desc, ->{order created_at: :desc}
+  scope :from_status, ->(status){where status: status}
   scope :order_pending, ->{order :status}
   scope :profile_id, ->(id){where(user_id: id).order_desc}
 

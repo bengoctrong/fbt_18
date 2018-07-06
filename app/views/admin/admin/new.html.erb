@@ -1,3 +1,10 @@
+<%= form_tag admin_booking_tours_path, method: :get, class:"form-inline" do %>
+  <%= submit_tag t("pending"), class:"btn btn-info" %>
+  <%= submit_tag t("accepted"), class:"btn btn-success" %>
+  <%= submit_tag t("rejected"), class:"btn btn-danger" %>
+  <%= submit_tag t("canceled"), class:"btn btn-warning" %>
+  <%= submit_tag t("all"), class:"btn btn-default" %>
+<% end %>
 <%= will_paginate @bookings %>
 <div class="row">
   <% @bookings.each do |booking| %>
