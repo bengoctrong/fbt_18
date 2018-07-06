@@ -1,0 +1,26 @@
+<div class="col-sm-4 mb-3">
+  <div class="card" id="tour-<%= tour.id %>">
+    <div class="card-header">
+      <%= link_to tour.name, tour, class:"card-link" %>
+      <span class="float-right"><%= t "id" %> : <%= tour.id %></span>
+    </div>
+    <div class="card-body">
+      <%= image_tag tour.picture.url, class:"card-img" if tour.picture? %>
+      <p><%= t "unit_price" %> : <%= t "dola", price:tour.price.to_i %></p>
+      <p><%= t "start_date" %>: <%= tour.start_date %></p>
+      <p><%= t "end_date" %>: <%= tour.end_date %></p>
+      <p>
+        <%= t "rates_mean" %>:
+        <% if tour.rates.size == 0 %>
+          <%= t "none_rates" %>
+        <% else %>
+          <%= tour.rates_mean %> <%= t "from_users_rating" %> <%= tour.rates.size %>
+        <% end %>
+      </p>
+    </div>
+    <div class="card-footer">
+      <%= link_to t("link_tour"), tour, class:"btn btn-success card-bot"%>
+      <%= link_to t("delete_tour"), "#", class:"btn btn-danger card-bot"%>
+    </div>
+  </div>
+</div>

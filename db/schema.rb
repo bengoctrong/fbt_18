@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20180621171928) do
     t.date "start_date"
     t.date "end_date"
     t.decimal "price", precision: 8, scale: 2
-    t.integer "seats_remaining"
+    t.integer "seats_remaining", default: :quantity
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

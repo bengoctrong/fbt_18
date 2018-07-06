@@ -18,7 +18,6 @@ class ReviewsController < ApplicationController
   def destroy
     respond_to do |format|
       if @review.destroy
-        flash[:success] = t "delete_success_review"
         format.html{redirect_to @tour}
         format.js
       else

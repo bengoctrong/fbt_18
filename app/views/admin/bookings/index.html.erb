@@ -1,4 +1,4 @@
-<%= form_tag admin_booking_tours_path, method: :get, class:"form-inline" do %>
+<%= form_tag admin_bookings_path, method: :get, class:"form-inline" do %>
   <%= submit_tag t("pending"), class:"btn btn-info" %>
   <%= submit_tag t("accepted"), class:"btn btn-success" %>
   <%= submit_tag t("rejected"), class:"btn btn-danger" %>
@@ -20,7 +20,7 @@
                 <%= image_tag booking.tour_picture, class: "resize" %>
                 <div class="container mt-3">
                   <% if booking.pending? %>
-                    <%= form_for booking, url: admin_booking_tours_path, class:"form-inline" do |f| %>
+                    <%= form_for booking, url: admin_bookings_path, class:"form-inline" do |f| %>
                       <%= f.hidden_field :id, value: booking.id %>
                       <%= f.submit t("accept"), class: "btn btn-success" %>
                       <%= f.submit t("reject"), class: "btn btn-danger" %>
