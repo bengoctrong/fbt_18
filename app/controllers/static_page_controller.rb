@@ -1,7 +1,9 @@
 class StaticPageController < ApplicationController
-  before_action :init_homepage, only: :home
+  before_action :load_categories, only: :home
 
   def home
+    @feed_items = Tour.search_by_name(params[:search]).search_by_category(params[:category]).order_desc
+      .paginate page: params[:page], per_page: Settings.record_pages
     flash.now[:warning] = t("no_record", search: params[:search]) if @feed_items.blank?
     respond_to do |format|
       format.html
@@ -11,9 +13,7 @@ class StaticPageController < ApplicationController
 
   private
 
-  def init_homepage
+  def load_categories
     @categories = Category.all
-    @feed_items = Tour.search_by_name(params[:search]).search_by_category(params[:category]).order_desc
-      .paginate page: params[:page], per_page: Settings.record_pages
   end
 end
