@@ -6,8 +6,6 @@ user:
   address_max: 300
   bank_max: 14
 tour:
-  picture_home: "250x250"
-  picture_show: "750x400"
   price_min: 0
   price_max: 100_000_000
   name_max: 255
@@ -19,9 +17,7 @@ rate:
   star_min: 0
   star_max: 6
 record_pages: 9
+record_pages_admin: 6
+row_review: 5
 
 remember_me: "1"
-#enviroment
-domain: "heroku.com"
-port: 587
-address: "smtp.gmail.com"

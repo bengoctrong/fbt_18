@@ -1,5 +1,6 @@
 class Tour < ApplicationRecord
   VALID_PRICE = /\A\d+(?:\.\d{0,2})?\z/
+  cattr_accessor :rates_mean
 
   has_many :rates, dependent: :destroy
   has_many :users, through: :rates, source: :user
@@ -21,6 +22,12 @@ class Tour < ApplicationRecord
   validate :date_validation?
   scope :order_desc, ->{order created_at: :desc}
   scope :search_by_name, ->(search){where("name LIKE ?", "%#{search}%") if search.present?}
+  scope :search_by_category, (lambda do |category|
+    if category.present?
+      includes(:categories).where(categories: {id: category})
+        .or(includes(:categories).where(categories: {parent_id: category}))
+    end
+  end)
 
   mount_uploader :picture, PictureUploader
 

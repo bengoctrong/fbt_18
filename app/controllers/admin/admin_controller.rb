@@ -1,10 +1,10 @@
 module Admin
   class AdminController < ApplicationController
-    before_action :check_admin
+    before_action :is_admin?
 
     def new
-      @bookings = Booking.includes(:tour).pending_status.order_desc
-        .paginate page: params[:page], per_page: Settings.record_pages
+      @bookings = Booking.from_status(params[:commit]).all.order_desc
+        .paginate page: params[:page], per_page: Settings.admin_booking
     end
 
     def create
@@ -23,7 +23,6 @@ module Admin
     def update_status
       if params[:commit] == t("accept")
         @booking.accepted!
-        flash[:info] = t "accept"
       elsif params[:commit] == t("reject")
         @booking.rejected!
         @booking.tour.update_attributes seats_remaining: @booking.tour.seats_remaining + @booking.quantity

@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(version: 20180621171928) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tour_id"], name: "index_reviews_on_tour_id"
-    t.index ["user_id", "tour_id"], name: "index_reviews_on_user_id_and_tour_id", unique: true
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 

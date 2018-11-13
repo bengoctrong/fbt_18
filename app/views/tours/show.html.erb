@@ -1,18 +1,33 @@
+<h1 class="color-primary mt-0 mb-15 hidden-xs">
+  <%= @tour.name %>
+</h1>
 <div class="row">
-  <h1 class="color-primary mt-0 mb-15 hidden-xs">
-    <%= @tour.name %>
-  </h1>
   <div class="col-md-8">
-    <%= image_tag @tour.picture.url, size: Settings.tour.picture_show,
-      class:"img-responsive" if @tour.picture? %>
-    <div class="panel panel-default">
-      <div class="panel-heading text-center">
-        <span class="mr-30"><%= t "start_date" %>: <%= @tour.start_date %></span>
-        <span class="mr-30"><%= t "end_date" %>: <%= @tour.end_date %></span>
-        <span class="mr-30"><%= t "tour_price" %>: <%= @tour.price %></span>
-        <span><%= t "tour_quantity" %>: <%= @tour.quantity %></span>
+    <%= image_tag @tour.picture.url, class:"card-img-top" if @tour.picture? %>
+    <div class="card border-secondary">
+      <div class="card-header bg-primary text-center text-white font-weight-bold">
+        <span class="mr-4"><%= t "start_date" %>: <%= @tour.start_date %></span>
+        <span class="mr-4"><%= t "end_date" %>: <%= @tour.end_date %></span>
+        <span class="mr-4"><%= t "tour_quantity" %>: <%= @tour.quantity %></span>
+          <span>
+            <%= t "rates_mean" %>:
+            <% if @tour.rates.size == Settings.rate.star_min %>
+              <%= t "none_rates" %>
+            <% else %>
+              <%= @tour.rates_mean %> <%= t "from_users_rating" %> <%= @tour.rates.size %>
+            <% end %>
+          </span>
+          <span>
+            <%= form_for @rate, class:"form-inline" do |f| %>
+              <%= f.hidden_field :tour_id, value: @tour.id %>
+              <%= f.hidden_field :user_id, value: current_user.id %>
+              <%= f.number_field :stars, min: Settings.tour.number_field,
+                max: Settings.row_review, value: Settings.tour.number_field %>
+              <%= f.submit t("rating"), class: "btn btn-danger" %>
+            <% end %>
+          </span>
       </div>
-      <div class="panel-body">
+      <div class="card-body">
         <span><%= @tour.description %></span>
       </div>
     </div>
@@ -23,10 +38,10 @@
         <div class="col-sm-12">
           <ul class="list-group">
             <li class="list-group-item list-group-item-info"><%= t "unit_price" %>
-              <span class="badge" id="unit_price"><%= t "dola", price:@tour.price %></span>
+              <span class="badge" id="unit_price"><%= number_to_currency @tour.price %></span>
             </li>
             <li class="list-group-item list-group-item-success"><%= t "price_total" %>
-              <span class="badge" id="price"><%= t "dola", price:@tour.price %> </span>
+              <span class="badge" id="price"><%= number_to_currency @tour.price %></span>
             </li>
             <li class="list-group-item list-group-item-success"><%= t "number_of_seats_remaining" %>
               <span class="badge" id="number"><%= @tour.seats_remaining %></span>
@@ -34,27 +49,31 @@
           </ul>
         </div>
       </div>
-      <div class="row">
+      <div class="row mt-3">
         <div class="col-md-12">
-          <%= form_for @booking do |f| %>
+          <%= form_for @booking, class:"form-inline" do |f| %>
             <%= f.hidden_field :tour_id, value: @tour.id %>
             <%= f.hidden_field :user_id, value: current_user.id %>
-            <div class="col-sm-4">
-              <p><%= t "quantity" %>
-                <span>
-                  <%= f.number_field :quantity, min: Settings.remember_me,
-                    max: @tour.seats_remaining, value: Settings.number_field, id: "quantity" %>
-                </span>
-              </p>
-            </div>
-            <div class="col-sm-8">
-              <div class="btn-group ebtn-group">
-                <%= f.submit t("book_tour"), class: "btn btn-danger ebtn-danger" %>
-              </div>
-            </div>
+            <%= t "quantity" %> <%= f.number_field :quantity, min: Settings.remember_me,
+              max: @tour.seats_remaining, value: Settings.tour.number_field, id: "quantity" %>
+            <%= f.submit t("book_tour"), class: "btn btn-danger" %>
           <% end %>
         </div>
       </div>
     <% end %>
   </div>
 </div>
+<div class="div-review-form">
+  <%= render "review_form" %>
+</div>
+<% if @reviews.any? %>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body div-review">
+          <%= render @reviews %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

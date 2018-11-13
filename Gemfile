@@ -5,17 +5,19 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem "cancancan", "~> 2.0"
 gem "bcrypt", "~> 3.1.7"
-gem "bootstrap-sass", "3.3.7"
-gem "bootstrap-will_paginate", "1.0.0"
+gem "bootstrap", "~> 4.1.1"
+gem "will_paginate",           "3.1.6"
+gem "will_paginate-bootstrap4"
 gem "carrierwave", "1.2.2"
 gem "config"
 gem "faker", "1.7.3"
 gem "jquery-rails", "4.3.1"
 gem "jquery-turbolinks"
 gem "rubocop", "~> 0.49.1", require: false
-gem "will_paginate", "3.1.6"
 gem "figaro"
+gem "font-awesome-rails"
 
 gem "coffee-rails", "~> 4.2"
 gem "jbuilder", "~> 2.5"

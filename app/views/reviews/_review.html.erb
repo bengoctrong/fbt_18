@@ -1,0 +1,24 @@
+<div id="review-<%= review.id %>">
+  <div class="row">
+    <div class="col-md-2">
+      <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid"/>
+      <p class="text-secondary text-center"><span><%= t "review_content1" %>
+      <%= time_ago_in_words(review.created_at) %><%= t "review_content2" %></span></p>
+    </div>
+    <div class="col-md-10">
+      <div class="clearfix"></div>
+      <p><%= review.content %></p>
+      <p>
+        <%= link_to  "#", class:"float-right btn btn-outline-primary ml-2" do %>
+         <i class="fa fa-reply"></i> <%= t "reply" %>
+        <% end %>
+      </p>
+      <% if logged_in? && (current_user?(review.user) || current_user.admin?) %>
+          <%= link_to review, method: :delete, data: {confirm: t("review_del_confirm")},
+            remote: true, class:"float-right btn btn-outline-primary ml-2" do %>
+            <span class="fa fa-trash"></span>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<%= form_tag user_path, method: :get, class:"form-inline" do %>
+  <%= submit_tag t("pending"), class:"btn btn-info" %>
+  <%= submit_tag t("accepted"), class:"btn btn-success" %>
+  <%= submit_tag t("rejected"), class:"btn btn-danger" %>
+  <%= submit_tag t("canceled"), class:"btn btn-warning" %>
+  <%= submit_tag t("all"), class:"btn btn-default" %>
+<% end %>
+<%= will_paginate @bookings %>
+<div class="row">
+  <% @bookings.profile_id(current_user.id).each do |booking| %>
+    <div class="card">
+      <div class="card-header">
+        <%= link_to booking.tour.name, booking.tour, class:"card-link" %>
+        <span class="badge badge-info float-right"><%= booking.status %></span>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <%= image_tag booking.tour.picture, class: "resize" %>
+            <% if booking.pending? %>
+            <div class="container mt-3">
+              <%= form_for booking, class:"form-inline", url: cancel_booking_path do |f| %>
+                <%= f.hidden_field :id, value: booking.id %>
+                <%= f.submit t("cancel"), class: "btn btn-success" %>
+              <% end %>
+            </div>
+          <% end %>
+          </div>
+          <div class="col-sm-6 text-center">
+            <p><b><%= t "price_total" %></b> <%= booking.total_price %> <%= t("$") %></p>
+            <p><b><%= t "quantity" %>:</b> <%= booking.quantity %></p>
+            <p><b><%= t "start_date" %>:</b> <%= booking.tour.start_date %></p>
+            <p><b><%= t "end_date" %>:</b> <%= booking.tour.end_date %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
